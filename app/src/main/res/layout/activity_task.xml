@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:openDrawer="start"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".task.TaskActivity"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/background_filter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"
+            android:backgroundTint="@android:color/black"
+            android:elevation="0dp"
+            android:foregroundTint="@android:color/black"
+            app:tint="@android:color/black"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/task_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundColor"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/foregroundColor"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_task_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="?attr/foregroundColor"
+            android:backgroundTint="?attr/foregroundColor"
+            android:clickable="true"
+            android:focusable="true"
+            android:tint="?attr/negativeTextColor"
+            app:elevation="12dp"
+            app:maxImageSize="36dp"
+            app:srcCompat="@drawable/ic_add" />
+
+        <LinearLayout
+            android:id="@+id/add_task_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="?attr/backgroundColor"
+            android:minHeight="128dp"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:orientation="horizontal">
+
+                <com.example.todo.QuickEditText
+                    android:id="@+id/add_task_input"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="20"
+                    android:autofillHints="@string/add_a_task"
+                    android:background="@null"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/add_a_task"
+                    android:inputType="text"
+                    android:minHeight="50dp"
+                    android:scrollHorizontally="false"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/textColor"
+                    android:textColorHint="?attr/lightTextColor" />
+
+                <ImageButton
+                    android:id="@+id/add_task_to_list_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:adjustViewBounds="false"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/cd_send_task"
+                    android:cropToPadding="false"
+                    android:scaleX="1.7"
+                    android:scaleY="1.7"
+                    android:tint="?attr/foregroundColor"
+                    app:srcCompat="@drawable/ic_send_circle_outline" />
+
+            </LinearLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal"
+                app:flexDirection="row"
+                app:flexWrap="wrap"
+                app:alignItems="flex_start">
+
+                <LinearLayout
+                    android:id="@+id/it_btn_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/transparent_rounded_btn_light"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:id="@+id/it_btn_date_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="Set date"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:src="@drawable/ic_inbox"
+                        app:tint="?attr/foregroundColor" />
+
+                    <TextView
+                        android:id="@+id/it_btn_date_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Set date"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                        android:textColor="?attr/foregroundColor"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/it_btn_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/transparent_rounded_btn_light"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:id="@+id/it_btn_time_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="Set date"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:src="@drawable/ic_clock"
+                        app:tint="?attr/foregroundColor" />
+
+                    <TextView
+                        android:id="@+id/it_btn_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Set time"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                        android:textColor="?attr/foregroundColor"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/it_btn_alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/transparent_rounded_btn_light"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:id="@+id/it_btn_alarm_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="Set date"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:src="@drawable/ic_notifications"
+                        app:tint="?attr/foregroundColor" />
+
+                    <TextView
+                        android:id="@+id/it_btn_alarm_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Enable alarm"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                        android:textColor="?attr/foregroundColor"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/it_btn_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/transparent_rounded_btn_light"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:id="@+id/it_btn_notification_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="Set date"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:src="@drawable/ic_notifications"
+                        app:tint="?attr/foregroundColor" />
+
+                    <TextView
+                        android:id="@+id/it_btn_notification_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Enable notification"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                        android:textColor="?attr/foregroundColor"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="?attr/backgroundColor"
+        android:maxWidth="310dp"
+        app:headerLayout="@layout/nav_header"
+        app:itemTextAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:menu="@menu/draw_menu"
+        app:itemIconTint="@drawable/nav_foreground_selector"
+        app:itemTextColor="@drawable/nav_foreground_selector"/>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

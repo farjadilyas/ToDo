@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_inbox"
+            android:icon="@drawable/ic_inbox"
+            android:title="@string/navInbox"
+            android:checkable="true"
+            android:checked="true" />
+
+        <item android:id="@+id/nav_today"
+            android:icon="@drawable/ic_today"
+            android:title="@string/navToday"
+            android:checkable="true"
+            android:checked="false"/>
+
+        <item android:id="@+id/nav_upcoming"
+            android:icon="@drawable/ic_upcoming"
+            android:title="@string/navUpcoming"
+            android:checkable="true"
+            android:checked="false"/>
+
+        <item android:id="@+id/nav_projects"
+            android:icon="@drawable/ic_projects"
+            android:title="@string/navProjects"
+            android:checkable="true"
+            android:checked="false"/>
+
+    </group>
+
+    <item android:title = "@string/navSettings">
+        <menu>
+            <item android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/navSettings"/>
+        </menu>
+    </item>
+
+</menu>
